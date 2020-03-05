@@ -1,39 +1,46 @@
+import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
     	//llamado basico
         PuzzleJava coding = new PuzzleJava();
 		//Primer Desafio
 		int[] primero = {3,5,1,2,7,9,8,13,25,32};
-		coding.primero(primero);
+		ArrayList<Integer> first = coding.primero(primero);
+		System.out.println(first);
 		// //Segundo Desafio
-		// coding.printerOdd(255);
+		String[] segundo = {"Nancy", "Jinichi", "Fujibayashi", "Momochi", "Ishikawa"};
+		ArrayList<String> second = coding.segundo(segundo);
+		System.out.println(second);
 		// //Tercer Desafio
-		// coding.printerSum(255);
-		// //Cuarto Desafio
-		// int[] cuarto = {1,3,5,7,9,13};
-		// coding.printerArray(cuarto);
-		// //Quinto Desafio
-		// int[] quinto = {-3,-5,-7};
-		// coding.printerMax(quinto);
-		// //Sexto Desafio
-		// int[] sexto = {2,10,3};
-		// coding.printerAverage(sexto);
-		// //Septimo Desafio
-		// coding.printerArrayOdd(255);
-		// //Octavo Desafio
-		// int[] octavo = {1,3,5,7};
-		// coding.printerMaxY(octavo,3);
-		// //Noveno Desafio
-		// int[] noveno = {1,5,10,-2};
-		// coding.printerSquare(noveno);
-		// //Decimo Desafio
-		// int[] decimo = {1,5,10,-2};
-		// coding.printerNoNegativo(decimo);
-		// //Undecimo Desafio
-		// int[] undecimo = {1,5,10,-2};
-		// coding.printerMinMaxAvrg(undecimo);
-		// //Duodecimo Desafio
-		// int[] duodecimo = {1,5,10,7,-2};
-		// coding.printerFinal(duodecimo);
+		ArrayList<Character> tercer = new ArrayList<Character>();
+		char[] abc = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+		for(int i =  0; i < abc.length; i++){
+			tercer.add(abc[i]);
+		}
+		coding.tercer(tercer);
+		//Cuarto Desafio
+		ArrayList<Integer> fourth = coding.cuarto();
+		System.out.println(fourth);
+		//Quinto Desafio
+		ArrayList<Integer> fifth = coding.quinto();
+		System.out.println(fifth);
+		int max = fifth.get(0);
+		int min = fifth.get(0);
+	    for (int i = 0;i < fifth.size(); i++){
+	    		if (fifth.get(i) > max) {
+	    			max = fifth.get(i);
+	    		}  
+	    		if (fifth.get(i) < min) {
+		    		min = fifth.get(i);
+		    	} 
+	    }
+	    System.out.println("El Numero mas Bajo: " + min);
+	    System.out.println("El Numero mas Alto: " + max);
+		//Sexto Desafio
+	    String six = coding.sexto();
+	    System.out.println(six);
+		//Septimo Desafio
+	    ArrayList<String> seven = coding.septimo();
+	    System.out.println(seven);
     }
 }

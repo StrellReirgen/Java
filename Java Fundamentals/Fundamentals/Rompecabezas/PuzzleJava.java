@@ -1,139 +1,92 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
+
 public class PuzzleJava {
     //Primer Desafio
-    public void primero(int[] array) {
+    public ArrayList<Integer> primero(int[] array) {
         System.out.println("Primer Desafio");
-        ArrayList<Integer> mayores = new ArrayList<Integer>();
+        ArrayList<Integer> retorno = new ArrayList<Integer>();
     	int sum = 0;
         for (int i = 0; i < array.length; i++){
             sum += array[i];
             if (array[i] > 10) {
-                mayores.add(array[i]);
+                retorno.add(array[i]);
             }
         }
         System.out.println(sum);
-        System.out.println(mayores);
+        return retorno;
     }
-    // //Segundo Desafio
-    // public void printerOdd(int limite) {
-    //     System.out.println("Numeros Impares");
-    //     for (int i = 1; i <= limite; i++){
-    //         if (i % 2 != 0) {
-    //             System.out.println(i);
-    //         }
-    //     }
-    // }
-    // //Tercer Desafio
-    // public void printerSum(int limite) {
-    //     System.out.println("Suma de Numeros");
-    //     int sum = 0;
-    //     for (int i = 0; i <= limite; i++){
-    //         sum += i;
-    //         System.out.println("Nuevo numero: " + i + " Suma: " + sum);
-    //     }
-    // }
-    // //Cuarto Desafio
-    // public void printerArray(int[] array) {
-    //     System.out.println("Numeros de un Arreglo");
-    //     for (int i = 0; i < array.length; i++){
-    //         System.out.println(array[i]);
-    //     }
-    // }
-    // //Quinto Desafio
-    // public void printerMax(int[] array) {
-    //     int val = array[0];
-    //     for (int i = 0;i < array.length; i++){
-    //         if (array[i] > val) {
-    //             val = array[i];
-    //         }   
-    //     }
-    //     System.out.println("El Numero mas Alto: " + val);
-    // }
-    // //Sexto Desafio
-    // public void printerAverage(int[] array) {
-    //     int result = 0;
-    //     for (int i = 0;i < array.length; i++){
-    //         result += array[i];
-    //     }
-    //     result = result / array.length;
-    //     System.out.println("El promedio del Arreglo: " + result);
-    // }
-    // //Septimo Desafio
-    // public void printerArrayOdd(int limite) {
-    //     ArrayList<Integer> almacen = new ArrayList<Integer>();
-    //     for (int i = 1;i <= limite; i++){
-    //         almacen.add(i);
-    //     }
-    //     ArrayList<Integer> impares = new ArrayList<Integer>();
-    //     for (int e = 0;e < almacen.size(); e++){
-    //         if (almacen.get(e) % 2 != 0) {
-    //             impares.add(almacen.get(e)); 
-    //         }
-    //     }
-    //     System.out.println(impares);
-    // }
-    // //Octavo Desafio
-    // public void printerMaxY(int[] array, int y) {
-    //     int count = 0;
-    //     for (int i = 0;i < array.length; i++){
-    //         if (array[i] > y) {
-    //             count += 1;
-    //         }
-    //     }
-    //     System.out.println("Cantidad mayores que " + y + ": " + count);
-    // }
-    // //Noveno Desafio
-    // public void printerSquare(int[] array) {
-    //     System.out.println("Los numeros al Cuadrado Son:");
-    //     ArrayList<Integer> cuadrado = new ArrayList<Integer>();
-    //     for (int i = 0;i < array.length; i++){
-    //         cuadrado.add(array[i] * array[i]);
-    //     }
-    //     System.out.println(cuadrado);
-    // }
-    // //Decimo Desafio
-    // public void printerNoNegativo(int[] array) {
-    //     System.out.println("Se Transformaron los valores negativos a 0");
-    //     for (int i = 0;i < array.length; i++){
-    //         if (array[i] < 0) {
-    //             array[i] = 0;
-    //         }
-    //     }
-    //     System.out.println(Arrays.toString(array));
-    // }
-    // //Undecimo Desafio
-    // public void printerMinMaxAvrg(int[] array) {
-    //     ArrayList<Integer> result = new ArrayList<Integer>();
-    //     System.out.println("Maximo, Minimo, Promedio");
-    //     int max = array[0];
-    //     int min = array[0];
-    //     int avrg = 0;
-    //     for (int i = 0;i < array.length; i++){
-    //         avrg += array[i];
-    //         if (array[i] > max) {
-    //             max = array[i];
-    //         }
-    //         if (array[i] < min) {
-    //             min = array[i];   
-    //         }   
-    //     }
-    //     avrg = avrg / array.length;
-    //     result.add(max);
-    //     result.add(min);
-    //     result.add(avrg);
-    //     System.out.println(result);
-    // }
-    // //Duodecimo Desafio
-    // public void printerFinal(int[] array) {
-    //     ArrayList<Integer> result = new ArrayList<Integer>();
-    //     System.out.println("Cambiando Valores de Arreglo");
-    //     for (int i = 1;i < array.length; i++){
-    //         result.add(array[i]);
-    //     }
-    //     result.add(0);
-    //     System.out.println(result);
-    // }
+    //Segundo Desafio
+    public ArrayList<String> segundo(String[] array) {
+        System.out.println("Segundo Desafio");
+        ArrayList<String> retorno = new ArrayList<String>();
+        for (int i = 0; i < array.length; i++){
+            System.out.println(array[i]);
+            if (array[i].length() > 5) {
+                retorno.add(array[i]);
+            }
+        }
+        return retorno;
+    }
+    //Tercer Desafio
+    public void tercer(List<Character> arrayTemp) {
+        System.out.println("Tercer Desafio");
+        Collections.shuffle(arrayTemp);
+        System.out.println(arrayTemp.get(arrayTemp.size()-1));
+        System.out.println(arrayTemp.get(0));
+        if (arrayTemp.get(0) == 'A' || arrayTemp.get(0) == 'E' || arrayTemp.get(0) == 'I' || arrayTemp.get(0) == 'O' || arrayTemp.get(0) == 'U') {
+            System.out.println("Es una Vocal Hurra!!");
+        }
+    }
+    //Cuarto Desafio
+    public ArrayList<Integer> cuarto() {
+        System.out.println("Cuarto Desafio");
+        ArrayList<Integer> retorno = new ArrayList<Integer>();
+        Random r = new Random();
+        for (int i = 0; i < 10; i++){
+        	retorno.add(r.nextInt(100-55)+55);
+            
+        }
+        return retorno;
+    }
+    //Quinto Desafio
+    public ArrayList<Integer> quinto() {
+        System.out.println("Quinto Desafio");
+        ArrayList<Integer> retorno = new ArrayList<Integer>();
+        Random r = new Random();
+        for (int i = 0; i < 10; i++){
+        	retorno.add(r.nextInt(100-55)+55);
+            
+        }
+        Collections.sort(retorno);
+        return retorno;
+    }
+    //Sexto Desafio
+    public String sexto() {
+        System.out.println("Sexto Desafio");
+        String retorno = "";
+        Random r = new Random();
+        char[] abc = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+		for(int i =  0; i < 5; i++){
+			retorno += abc[r.nextInt(abc.length)];
+		}
+        return retorno;
+    }
+    //Septimo Desafio
+    public ArrayList<String> septimo() {
+        System.out.println("Septimo Desafio");
+        ArrayList<String> retorno = new ArrayList<String>();
+        Random r = new Random();
+        char[] abc = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+        for (int e = 0;e < 10; e++) {
+        	String word = "";
+			for(int i =  0; i < 5; i++){
+				word += abc[r.nextInt(abc.length)];
+			}
+			retorno.add(word);
+        }
+        return retorno;
+    }
 }
