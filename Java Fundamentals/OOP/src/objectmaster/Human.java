@@ -16,7 +16,6 @@ public class Human {
 	public Human attack(Human attacked) {
 		attacked.health -= this.strength;
 		return this;
-		
 	}
 	
 	public void displayHealth() {
