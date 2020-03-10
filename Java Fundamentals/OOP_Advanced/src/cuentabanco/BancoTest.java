@@ -16,7 +16,5 @@ public class BancoTest {
 		cuenta.retirar("ahorro", 300);
 		cuenta.retirar("ahorro", 1000000);
 		cuenta.getBalances();
-
 	}
-
 }
