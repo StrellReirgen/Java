@@ -4,61 +4,79 @@ import java.text.DecimalFormat;
 
 public class BankAccount {
 	DecimalFormat df = new DecimalFormat("#.00");
-	private String accountNumber;
-	private double checkingBalance;
-	private double savingsBalance;
-	private static int accountsCount = 0;
-	private static double totalAmount = 0;
+	private String numeroCuenta;
+	private double saldoCorriente;
+	private double saldoAhorro;
+	private static int contadorCuentas = 0;
+	private static double montoTotal = 0;
 	
 	public BankAccount() {
-		accountsCount++;
-		this.accountNumber = getAccountNumber();
+		contadorCuentas++;
+		this.numeroCuenta = creandoNumero();
 	}
-	public String getAccountNumber() {
-		String accountNumber = "";
+	public String creandoNumero() {
+		String numeroCuenta = "";
 		for(int i=0; i<10; i++) {
 			int random = (int) (Math.random()*10);
-			accountNumber += random;
+			numeroCuenta += random;
 		}
-		return accountNumber;
+		return numeroCuenta;
 	}
-	private double getCheckingBalance() {
-		return this.checkingBalance;
+	private double getSaldoCorriente() {
+		return this.saldoCorriente;
 	}
-	private double getSavingsBalance() {
-		return this.savingsBalance;
+	private double getSaldoAhorro() {
+		return this.saldoAhorro;
 	}
 	
+	public void datos() {
+		System.out.println("Numero de Cuentas: " + contadorCuentas);
+		System.out.println("Cuenta Actual: "+ numeroCuenta);
+	}
 	public void getBalances() {
-		System.out.println("Checking account: $"+df.format(getCheckingBalance()));
-		System.out.println("Savings account: $"+df.format(getSavingsBalance()));
+		System.out.println("Cuenta Corriente: $"+df.format(getSaldoCorriente()));
+		System.out.println("Cuenta Ahorro: $"+df.format(getSaldoAhorro()));
 	}
-	public void deposit(String accountType, double amount) {
-		if(accountType == "checking") {
-			this.checkingBalance += amount;
-		} else if(accountType == "savings") {
-			this.savingsBalance += amount;
+	public void deposito(String tipo, double monto) {
+		boolean depositado = false;
+		if(tipo == "corriente") {
+			this.saldoCorriente += monto;
+			depositado = true;
+		} else if(tipo == "ahorro") {
+			this.saldoAhorro += monto;
+			depositado = true;
 		} else {
-			System.out.println("Please choose either your savings or your checking account into which to deposit.");
+			System.out.println("Por favor, escriba una de las dos cuentas a la que depositar: 'corriente' o 'ahorro'.");
 		}
-		totalAmount += amount;
-		System.out.println("Deposited $"+df.format(amount)+" into your "+accountType+" account.");
+		if (depositado) {
+			montoTotal += monto;
+			System.out.println("Depositado $" + df.format(monto) + " en tu cuenta " + tipo + ".");
+		}
 	}
-	public void withdraw(String accountType, double amount) {
-		if(accountType == "checking") {
-			if(amount > this.checkingBalance) {
-				System.out.println("Insuffient funds.");
+	public void retirar(String tipo, double monto) {
+		boolean retirado = false;
+		if(tipo == "corriente") {
+			if(monto > this.saldoCorriente) {
+				System.out.println("Fondos Insuficientes.");
 			}
-			this.checkingBalance -= amount;
-		} else if(accountType == "savings") {
-			if(amount > this.savingsBalance) {
-				System.out.println("Insuffient funds.");
+			else {
+				this.saldoCorriente -= monto;
+				retirado = true;
 			}
-			this.savingsBalance -= amount;
+		} else if(tipo == "ahorro") {
+			if(monto > this.saldoAhorro) {
+				System.out.println("Fondos Insuficientes.");
+			}
+			else {
+				this.saldoAhorro -= monto;
+				retirado = true;
+			}
 		} else {
-			System.out.println("Please choose either your savings or your checking account into which to deposit.");
+			System.out.println("Por favor, escriba una de las dos cuentas a la cual va a retirar: 'corriente' o 'ahorro'.");
 		}
-		totalAmount -= amount;
-		System.out.println("Withdrew $"+df.format(amount)+" from your "+accountType+" account.");
+		if (retirado) {
+			montoTotal -= monto;
+			System.out.println("retirado $" + df.format(monto) + " desde tu cuenta " + tipo + ".");
+		}
 	}
 }
