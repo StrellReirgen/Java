@@ -1,6 +1,6 @@
 package com.pets.web.models;
 
-public interface pet {
+public interface Pet {
 	String showAffection();
 
 }
