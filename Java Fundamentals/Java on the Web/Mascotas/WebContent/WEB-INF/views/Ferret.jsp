@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Un Gatito</title>
+<title>Un Huron</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
 	<div class="container bg-success p-3">
-		<h1 class="display-3 text-center text-light">Has adoptado a <c:out value="${cat.getName()}"/>, un gato <c:out value="${cat.getBreed()}"/></h1>
-		<img src="resources/img/gato.jpg" class='w-50 img-thumbnail rounded mx-auto d-block'>
-		<h1 class="display-4 text-center text-light"><c:out value="${cat.showAffection()}"/></h1>
+		<h1 class="display-3 text-center text-light">Has adoptado a <c:out value="${ferret.getName()}"/>, un huron <c:out value="${ferret.getBreed()}"/></h1>
+		<img src="resources/img/huron.jpg" class='w-50 img-thumbnail rounded mx-auto d-block'>
+		<h1 class="display-4 text-center text-light"><c:out value="${ferret.showAffection()}"/></h1>
 	</div>
 </body>
 </html>

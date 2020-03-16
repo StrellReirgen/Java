@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="container bg-success p-3">
-		<h1 class="display-3 text-center text-light">Haz adoptado a <c:out value="${dog.getName()}"/>, un perro <c:out value="${dog.getBreed()}"/></h1>
+		<h1 class="display-3 text-center text-light">Has adoptado a <c:out value="${dog.getName()}"/>, un perro <c:out value="${dog.getBreed()}"/></h1>
 		<img src="resources/img/perro.jpg" class='w-50 img-thumbnail rounded mx-auto d-block'>
 		<h1 class="display-4 text-center text-light"><c:out value="${dog.showAffection()}"/></h1>
 	</div>

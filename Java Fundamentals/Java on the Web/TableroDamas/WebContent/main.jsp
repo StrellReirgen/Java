@@ -21,7 +21,7 @@
 		%>
 		
 		<div class="container">
-			<p class="display-4 text-center">Tablero de Lobos: <%=width%>x & <%=height%>y</p>
+			<p class="display-4 text-center">Tablero de Lobos: <%=width%>x / <%=height%>y</p>
 			<% 
 			for (int i = 0;i<height;i++){
 			%>

@@ -53,6 +53,50 @@
 				</form>
 			</div>
 		</div>
+		<div class="row justify-content-center">
+			<div class="col-5">
+				<form action="/Mascotas/bunny">
+					<div class="form-group">
+						<h1 class="display-4 text-center text-light">Pide tu Conejo:</h1>
+						<label for="inputName" class="text-light">Nombre</label> <input type="text"
+							class="form-control" id="inputName" name="name"
+							placeholder="Ingresa su nombre">
+					</div>
+					<div class="form-group">
+						<label for="inputBreed" class="text-light">Raza</label> <input type="text"
+							class="form-control" id="inputBreed" name="breed"
+							placeholder="Ingresa su raza">
+					</div>
+					<div class="form-group">
+						<label for="inputWeight" class="text-light">Peso</label> <input type="number" name="weight" class="form-control"
+							id="inputWeight">
+					</div>
+					<button type="submit" class="btn btn-primary">Ingresar
+						Mascota</button>
+				</form>
+			</div>
+			<div class="col-5">
+				<form action="/Mascotas/ferret">
+					<div class="form-group">
+						<h1 class="display-4 text-center text-light">Pide tu Huron:</h1>
+						<label for="inputName" class="text-light">Nombre</label> <input type="text"
+							class="form-control" id="inputName" name="name"
+							placeholder="Ingresa su nombre">
+					</div>
+					<div class="form-group">
+						<label for="inputBreed" class="text-light">Raza</label> <input type="text"
+							name="breed" class="form-control" id="inputBreed"
+							placeholder="Ingresa su raza">
+					</div>
+					<div class="form-group">
+						<label for="inputWeight" class="text-light">Peso</label> <input type="number" class="form-control"
+							id="inputWeight" name="weight">
+					</div>
+					<button type="submit" class="btn btn-primary">Ingresar
+						Mascota</button>
+				</form>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.pets.web.models.Ferret;
 
 
-@WebServlet("/FerretController")
+@WebServlet("/ferret")
 public class FerretController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
