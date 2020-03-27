@@ -1,9 +1,13 @@
 package com.pets.web.models;
 
-public class Animal{
+public class Animal implements java.io.Serializable{
 	private String name;
 	private String breed;
 	private double weight;
+	
+	public Animal() {
+		
+	}
 	
 	public Animal(String nombre, String raza, double peso) {
 		setName(nombre);
@@ -11,13 +15,13 @@ public class Animal{
 		setWeight(peso);
 	}
 	
-	private void setName(String nombre) {
+	public void setName(String nombre) {
 		this.name = nombre;
 	}
-	private void setBreed(String raza) {
+	public void setBreed(String raza) {
 		this.breed = raza;
 	}
-	private void setWeight(double peso) {
+	public void setWeight(double peso) {
 		this.weight = peso;
 	}
 	public String getName() {
