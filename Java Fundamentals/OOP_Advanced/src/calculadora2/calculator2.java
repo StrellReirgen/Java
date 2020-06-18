@@ -1,6 +1,6 @@
 package calculadora2;
 
-public class Calculator implements java.io.Serializable{
+public class calculator2 implements java.io.Serializable{
 	private double valor1;
 	private double valor2;
 	private String operador1;
@@ -12,7 +12,7 @@ public class Calculator implements java.io.Serializable{
 	private boolean operador2Set = false;
 	private boolean totalSet = false;
 	
-	public Calculator() {
+	public calculator2() {
 	}
 	public void performOperation(double valor) {
 		if(!this.valor1Set) {

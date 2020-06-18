@@ -1,9 +1,9 @@
 package calculadora2;
 
-public class CalculatorTest {
+public class calculator2Test {
 
 	public static void main(String[] args) {
-		Calculator calculadora = new Calculator();
+		calculator2 calculadora = new calculator2();
 		calculadora.performOperation(10.5);
 		calculadora.performOperation("+");
 		calculadora.performOperation(5.2);
