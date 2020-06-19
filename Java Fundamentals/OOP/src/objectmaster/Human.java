@@ -7,6 +7,7 @@ public class Human {
 	public int health;
 	
 	public Human() {
+		
 		this.strength = 3;
 		this.stealth = 3;
 		this.intelligence = 3;
@@ -19,7 +20,7 @@ public class Human {
 	}
 	
 	public void displayHealth() {
-		System.out.println(this.health);
+		System.out.println("salud = " + this.health);
 		
 	}
 	

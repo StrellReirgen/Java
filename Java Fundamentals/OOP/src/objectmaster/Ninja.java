@@ -9,6 +9,7 @@ public class Ninja extends Human{
 	public Human steal(Human stealed) {
 		stealed.health -= this.stealth;
 		this.health += this.stealth;
+		
 		return this;	
 	}
 	

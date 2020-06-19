@@ -19,7 +19,8 @@ public class HumanTest {
 		merlin.heal(gintoki);
 		kojiro.deathBlow(musashi);
 		kojiro.meditate();
-		System.out.println(gintoki.howMany());
+		
+		System.out.println("gintoki " + gintoki.howMany());
 		merlin.displayHealth();
 		raiden.displayHealth();
 		kojiro.displayHealth();
