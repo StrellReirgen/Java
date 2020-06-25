@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+body {
+	background: gray;
+}
+
+#caja {
+	margin-top:90px;
+	width:500px;
+	padding:30px;
+	border-radius:10px;
+}
+
+label {
+	display: block;
+	color:white;
+}
+
+label p {
+	color:gray;
+}
+
+input {
+	margin-left:90px;
+}
+
+select {
+	margin-left:80px;
+}
+
+select.lang {
+	margin-left:100px;
+}
+
+button {
+	margin:20px 0px 0 180px;
+	display: block;
+}
+
+a {
+	margin-left:350px;
+}
+
+h1{
+	text-align:center;
+	color: white;
+}
