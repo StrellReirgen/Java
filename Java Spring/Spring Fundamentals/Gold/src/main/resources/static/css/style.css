@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+body{
+	background: black;
+}
+
+.red {
+	color: #ef2929;	
+}
+
+.green {
+	color: #8ae234;
+}
+
+#actividad {
+	height:150px;
+	background: gray;
+	border-radius:10px;
+}
+
+.info {
+	display: inline-block;
+}
+
+.btn {
+	border:5px solid;
+	border-radius:20px;
+	
+}
+
+.icono {
+	width: 32px;
+	height: 32px;
+}
+
+.viaje {
+	width: 100px;
+	border-radius:20px;
+	background: white;
+	
+}
+.container {
+	border-radius:20px;
+}
