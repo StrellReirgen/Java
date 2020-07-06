@@ -15,7 +15,7 @@
 	<div class="container">
 		<div class="mt-5 text-center">
 		<c:set var = "now" value = "${chrono}" />
-		<p class="azul display-4"><fmt:formatDate pattern = "EEEE" value = "${now}"/>, <fmt:formatDate pattern = "dd" value = "${now}"/> de <fmt:formatDate pattern = "MMMM" value = "${now}"/>, <fmt:formatDate pattern = "yyyy" value = "${now}"/></p>
+		<p class="azul display-4"><fmt:formatDate pattern = "E" value = "${now}"/>, <fmt:formatDate pattern = "dd" value = "${now}"/> de <fmt:formatDate pattern = "MMMM" value = "${now}"/>, <fmt:formatDate pattern = "yyyy" value = "${now}"/></p>
 		</div>
 	</div>
 </body>
