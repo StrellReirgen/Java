@@ -17,7 +17,7 @@
 			<a href="/dashboard" class="col-2 btn btn-warning">Dashboard</a>
 			<p class="col">Puntuación: ${cancion.rating}</p>
 		</div>
-		<iframe class="mt-3" width="560" height="315" src="${cancion.url}" frameborder="0" allowfullscreen></iframe>
+		<iframe class="mt-3" width="560" height="315" src="https://www.youtube.com/embed/${cancion.url}" frameborder="0" allowfullscreen></iframe>
 		<div class="row mt-3 adios">
 		<a href="/songs/${cancion.id}/edit" class="col-2 btn btn-primary">Editar</a>
 		<form class="col-2" action="/songs/${cancion.id}" method="post">

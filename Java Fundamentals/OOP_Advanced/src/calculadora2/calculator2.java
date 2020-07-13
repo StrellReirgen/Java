@@ -14,6 +14,7 @@ public class calculator2 implements java.io.Serializable{
 	
 	public calculator2() {
 	}
+	
 	public void performOperation(double valor) {
 		if(!this.valor1Set) {
 			this.valor1 = valor;

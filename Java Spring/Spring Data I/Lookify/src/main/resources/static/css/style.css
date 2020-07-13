@@ -49,3 +49,8 @@ body{
 .adios{
 	margin-left: 335px;
 }
+
+.errores{
+	color:red;
+	font-size: 11px;
+}

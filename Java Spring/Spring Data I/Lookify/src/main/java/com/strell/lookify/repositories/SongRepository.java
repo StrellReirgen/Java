@@ -13,6 +13,8 @@ public interface SongRepository extends CrudRepository<Song, Long>{
     List<Song> findAll();
     //Este método encuentra un cancion por su titulo
     List<Song> findByArtistContaining(String search);
+    //Este método encuentra los Top 10 por su titulo
+    List<Song> findTop10ByOrderByRatingDesc();
     //Este método cuenta cuántas canciones contiene cierta cadena en el título
     Long countByTitleContaining(String search);
     //Este método borra un cancion que empieza con un título específico

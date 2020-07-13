@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Range;
@@ -21,13 +23,14 @@ public class Song {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Size(min = 1, max = 50)
+	@Size(min=2, message="El título debe contener minimo 2 letras.")
     private String title;
-    @Size(min = 1, max = 50)
+	@Size(min=2, message="El artista debe contener minimo 2 letras.")
     private String artist;
-    @Size(min = 5, max = 500)
+    @Size(min = 3, message="La URL debe tener minimo 3 letras")
     private String url;
-    @Range(min=1,max=10)
+    @Min(1)
+	@Max(10)
     private Integer rating;
     // Esto no permitirá que el campo createdAt sea modificado después de su creación.
     @Column(updatable=false)

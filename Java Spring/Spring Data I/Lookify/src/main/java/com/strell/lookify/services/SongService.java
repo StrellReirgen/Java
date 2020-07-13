@@ -23,6 +23,9 @@ public class SongService {
     public List<Song> allSongsByArtist(String a) {
         return SongRepo.findByArtistContaining(a);
     }
+    public List<Song> getTopSongs(){
+		return SongRepo.findTop10ByOrderByRatingDesc();
+	}
     //Creando un libro.
     public Song createSong(Song b) {
         return SongRepo.save(b);
@@ -42,7 +45,7 @@ public class SongService {
         if(lang.isPresent()) {
         	lang.get().setTitle(titulo);
         	lang.get().setArtist(artista);
-        	lang.get().setArtist(ruta);
+        	lang.get().setUrl(ruta);
         	lang.get().setRating(valor);
         	return SongRepo.save(lang.get());
         } else {
@@ -55,6 +58,7 @@ public class SongService {
     	if(lang.isPresent()) {
         	lang.get().setTitle(b.getTitle());
         	lang.get().setArtist(b.getArtist());
+        	lang.get().setUrl(b.getUrl());
         	lang.get().setRating(b.getRating());
         	return SongRepo.save(lang.get());
         } else {
