@@ -1,6 +1,5 @@
 package com.strell.driver.controllers;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,20 +49,9 @@ public class DriverApi {
     public List<License> indexB() {
         return LicenServ.allLicense();
     }
-	
-	@RequestMapping(value="/api/licenses", method=RequestMethod.POST)
-    public License createL(@RequestParam(value="date") Date fecha, @RequestParam(value="state") String estado) {
-		License lice = new License(fecha, estado);
-        return LicenServ.createLicense(lice);
-    }
 	@RequestMapping("/api/licenses/{id}")
     public License showL(@PathVariable("id") Long id) {
         return LicenServ.findLicense(id);
-    }
-	@RequestMapping(value="/api/licenses/{id}", method=RequestMethod.PUT)
-    public License updateL(@PathVariable("id") Long id, @RequestParam(value="date") Date fecha, @RequestParam(value="state") String estado) {
-		License lice = new License(fecha, estado);
-        return LicenServ.updateLicense(lice);
     }
 	@RequestMapping(value="/api/licenses/{id}", method=RequestMethod.DELETE)
     public void destroyL(@PathVariable("id") Long id) {

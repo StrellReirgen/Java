@@ -40,7 +40,7 @@ public class PersonService {
     public Person updatePerson(Person b) {
     	Optional<Person> user = PersonRepo.findById(b.getId());
     	if(user.isPresent()) {
-        	user.get().setName(b.getName());
+        	user.get().setFirstName(b.getFirstName());
         	user.get().setlastName(b.getLastName());
         	user.get().setRut(b.getRut());
         	return PersonRepo.save(user.get());

@@ -13,6 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="persons")
@@ -20,8 +21,11 @@ public class Person {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+	@Size(min=1, message="No puede ir vacio.")
     private String firstName;
+	@Size(min=1, message="No puede ir vacio.")
     private String lastName;
+	@Size(min=1, message="No puede ir vacio.")
     private String rut;
     @Column(updatable=false)
     private Date createdAt;
@@ -56,11 +60,11 @@ public class Person {
 		this.id = id;
 	}
 
-	public String getName() {
+	public String getFirstName() {
 		return firstName;
 	}
 
-	public void setName(String nombre) {
+	public void setFirstName(String nombre) {
 		this.firstName = nombre;
 	}
 

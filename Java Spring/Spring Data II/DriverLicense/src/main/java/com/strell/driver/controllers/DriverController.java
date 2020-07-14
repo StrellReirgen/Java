@@ -1,6 +1,8 @@
 package com.strell.driver.controllers;
 
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -12,93 +14,62 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.strell.driver.models.License;
 import com.strell.driver.models.Person;
+import com.strell.driver.services.LicenseService;
 import com.strell.driver.services.PersonService;
 
 @Controller
-@RequestMapping("/")
 public class DriverController {
-	private final PersonService SongServ;
-	public DriverController(PersonService b){
-        this.SongServ = b;
+	private final PersonService PersonServ;
+	private final LicenseService LicenServ;
+	public DriverController(PersonService b, LicenseService a){
+        this.PersonServ = b;
+        this.LicenServ = a;
     }
-	
+	@RequestMapping("/")
     public String index(Model model) {
-        List<Person> lang = SongServ.allPerson();
-        model.addAttribute("canciones", lang);
+        List<Person> person = PersonServ.allPerson();
+        model.addAttribute("user", person);
         return "/index.jsp";
     }
-	@RequestMapping("/search/{name}")
-    public String artist(@PathVariable("name") String name, Model model) {
-		List<Person> lang = SongServ.allSongsByArtist(name);
-        model.addAttribute("canciones", lang);
-        model.addAttribute("dashboard", "<a href=\"/dashboard\" class=\"btn btn-warning\">Dashboard</a>");
-        return "/songs/index.jsp";
+	
+	@RequestMapping("/persons/new")
+    public String newPerson(@ModelAttribute("dato") Person code) {
+        return "/person/newp.jsp";
     }
-	@RequestMapping("/search/topten")
-    public String top(Model model) {
-		List<Person> lang = SongServ.allPerson();
-		List<Person> top = new ArrayList<Person>();
-		for (int i = 0 ;i<lang.size(); i++) {
-			if (top.size()<10) {
-				top.add(lang.get(i));
-			} else {
-				Person menor = top.get(0);
-				int id = 0;
-				for (int e = 0 ;e<top.size(); e++) {
-					if (top.get(e).getRating()<menor.getRating()) {
-						menor=top.get(e);
-						id = e;
-					}
-				}
-				if (lang.get(i).getRating()>menor.getRating()) {
-					top.set(id, lang.get(i));
-				}
-			}
-		}
-        model.addAttribute("canciones", top);
-        model.addAttribute("dashboard", "<a href=\"/dashboard\" class=\"btn btn-warning\">Dashboard</a>");
-        return "/songs/index.jsp";
-    }
-	@RequestMapping("/songs/new")
-    public String newSong(@ModelAttribute("dato") Person code) {
-        return "/songs/new.jsp";
-    }
-	@RequestMapping(value="/dashboard", method=RequestMethod.POST)
-    public String create(@Valid @ModelAttribute("dato") Person code, BindingResult result) {
+	@RequestMapping(value="/persons/new", method=RequestMethod.POST)
+    public String createPerson(@Valid @ModelAttribute("dato") Person code, BindingResult result) {
         if (result.hasErrors()) {
-            return "redirect:/songs/new";
+            return "redirect:/persons/new";
         } else {
-        	SongServ.createSong(code);
-            return "redirect:/dashboard";
+        	PersonServ.createPerson(code);
+            return "redirect:/";
         }
     }
-	@RequestMapping("/songs/{id}")
+	@RequestMapping("/licenses/new")
+    public String newLicense(Model model) {
+		List<Person> person = PersonServ.allPerson();
+        model.addAttribute("users", person);
+        return "/license/newl.jsp";
+    }
+	@RequestMapping(value="/licenses/new", method=RequestMethod.POST)
+    public String createLicense(@RequestParam("usuario") Long id, @RequestParam("date") String fecha, @RequestParam("state") String estado) throws ParseException {
+		System.out.println("id: "+id);
+		System.out.println("region: "+estado);
+		System.out.println("date: "+fecha);
+		Person user = PersonServ.findPerson(id);
+		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);
+		License b = new License("", date, estado, user);
+		LicenServ.createLicense(b);
+        return "redirect:/";
+    }
+	@RequestMapping("/persons/{id}")
     public String show(@PathVariable("id") Long id, Model model) {
-		Person show = SongServ.findSong(id);
-        model.addAttribute("cancion", show);
-        return "/songs/song.jsp";
-    }
-	@RequestMapping("/songs/{id}/edit")
-    public String edit(@PathVariable("id") Long id, Model model) {
-		Person show = SongServ.findSong(id);
-        model.addAttribute("cancion", show);
-        return "/songs/edit.jsp";
-    }
-    
-    @RequestMapping(value="/songs/{id}", method=RequestMethod.PUT)
-    public String update(@Valid @ModelAttribute("cancion") Person lang, BindingResult result) {
-        if (result.hasErrors()) {
-            return "redirect:/songs/"+lang.getId()+"/edit";
-        } else {
-        	SongServ.updateSong(lang);
-            return "redirect:/dashboard";
-        }
-    }
-    @RequestMapping(value="/songs/{id}", method=RequestMethod.DELETE)
-    public String destroy(@PathVariable("id") Long id) {
-    	SongServ.deleteSong(id);
-        return "redirect:/dashboard";
+		Person user = PersonServ.findPerson(id);
+        model.addAttribute("usuario", user);
+        return "/person/show.jsp";
     }
 }

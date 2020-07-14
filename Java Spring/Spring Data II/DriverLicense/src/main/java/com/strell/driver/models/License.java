@@ -13,6 +13,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="licenses")
@@ -20,22 +23,29 @@ public class License {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+	@Column
     private String number;
+	@Column
+    @NotNull(message="Please enter a date.")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date expirationDate;
+	@Column
+    @NotNull(message="Please enter a state.")
     private String state;
     @Column(updatable=false)
     private Date createdAt;
     private Date updatedAt;
     @OneToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="person_id")
+    @JoinColumn(name="person_id", nullable=false)
     private Person person;
     public License() {  
     }
     
-    public License(Date fecha, String estado) {
-        this.expirationDate = fecha;
+    public License(String numero, Date fecha, String estado, Person user) {
+    	this.number = numero;
+    	this.expirationDate = fecha;
         this.state = estado;
-       
+        this.person = user;
     }
     
     @PrePersist
@@ -63,11 +73,11 @@ public class License {
 		this.number = numero;
 	}
 
-	public Date getDate() {
+	public Date getExpirationDate() {
 		return expirationDate;
 	}
 
-	public void setDate(Date fecha) {
+	public void setExpirationDate(Date fecha) {
 		this.expirationDate = fecha;
 	}
 	public String getState() {

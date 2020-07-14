@@ -43,7 +43,7 @@ public class LicenseService {
     public License updateLicense(License b) {
     	Optional<License> user = LicenRepo.findById(b.getId());
     	if(user.isPresent()) {
-        	user.get().setDate(b.getDate());
+        	user.get().setExpirationDate(b.getExpirationDate());
         	user.get().setState(b.getState());
         	return LicenRepo.save(user.get());
         } else {
