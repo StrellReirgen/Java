@@ -14,10 +14,10 @@ import com.strell.student.services.ContactService;
 import com.strell.student.services.StudentService;
 
 @RestController
-public class DriverApi {
+public class StudentApi {
 	private final StudentService StudentServ;
 	private final ContactService ContactServ;
-	public DriverApi(StudentService a, ContactService b){
+	public StudentApi(StudentService a, ContactService b){
         this.StudentServ = a;
         this.ContactServ = b;
     }
