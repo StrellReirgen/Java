@@ -21,10 +21,10 @@ import com.strell.market.services.ProductService;
 import com.strell.market.services.CategoryService;
 
 @Controller
-public class DojoninjaController {
+public class MarketController {
 	private final CategoryService CateServ;
 	private final ProductService ProServ;
-	public DojoninjaController(CategoryService a, ProductService b){
+	public MarketController(CategoryService a, ProductService b){
         this.CateServ = a;
         this.ProServ = b;
     }
