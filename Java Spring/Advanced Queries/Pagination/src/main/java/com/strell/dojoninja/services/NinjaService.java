@@ -1,51 +1,28 @@
 package com.strell.dojoninja.services;
 
-import java.util.List;
-import java.util.Optional;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.strell.dojoninja.models.Ninja;
 import com.strell.dojoninja.repositories.NinjaRepository;
 
 @Service
+@Transactional
 public class NinjaService {
-    private final NinjaRepository NinjaRepo;
+    @Autowired 
+    NinjaRepository ninjaRepo;
     
-    public NinjaService(NinjaRepository x) {
-        this.NinjaRepo = x;
-    }
-    //Devolviendo todas las personas.
-    public List<Ninja> allNinja() {
-        return NinjaRepo.findAll();
-    }
-    //Devolviendo a una Persona por ID.
-    public Ninja findNinja(Long id) {
-    	Optional<Ninja> user = NinjaRepo.findById(id);
-        if(user.isPresent()) {
-            return user.get();
-        } else {
-            return null;
-        }
-    }
-    //Ingresando a una persona.
-    public Ninja createNinja(Ninja c) {
-        return NinjaRepo.save(c);
-    }
-    //Actualizar Datos de una Persona.
-    public Ninja updateNinja(Ninja b) {
-    	Optional<Ninja> user = NinjaRepo.findById(b.getId());
-    	if(user.isPresent()) {
-        	user.get().setFirstName(b.getFirstName());
-        	user.get().setlastName(b.getLastName());
-        	user.get().setAge(b.getAge());
-        	return NinjaRepo.save(user.get());
-        } else {
-            return null;
-        }   
-    }
-    //Eliminando a una Persona.
-    public void deleteNinja(Long id) {
-    	NinjaRepo.deleteById(id);
+    //la variable estática establece el número de ninjas que queremos mostrar por página.
+    
+    private static final int PAGE_SIZE = 5;
+    public Page<Ninja> ninjasPerPage(int pageNumber) {
+        // Obtener todas las páginas de ninjas y clasificarlas en orden ascendente por apellido.
+        PageRequest pageRequest = PageRequest.of(pageNumber, PAGE_SIZE, Sort.by(Sort.Direction.ASC, "lastName"));
+        Page<Ninja> ninjas = ninjaRepo.findAll(pageRequest);
+        return ninjas;
     }
 }

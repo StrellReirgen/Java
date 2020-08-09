@@ -1,11 +1,8 @@
 package com.strell.dojoninja.repositories;
 
-import java.util.List;
-
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.strell.dojoninja.models.Dojo;
 
-public interface DojoRepository extends CrudRepository<Dojo, Long>{
-	List<Dojo> findAll();
+public interface DojoRepository extends PagingAndSortingRepository<Dojo, Long>{
 }
