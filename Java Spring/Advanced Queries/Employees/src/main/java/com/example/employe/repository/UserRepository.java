@@ -3,13 +3,14 @@ package com.example.employe.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.employe.models.User;
+import com.example.employe.models.Employees;
+
 
 
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Long>{
+public interface UserRepository extends CrudRepository<Employees, Long>{
 	
-	User FindById(Long id);
+	Employees FindById(Long id);
 
 }
